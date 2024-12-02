@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": -124.2, "left": 399.6, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -297.3,
+      "left": 791.4,
+      "attrs": { "temperature": "54.4", "humidity": "82" }
+    },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 156.8, "left": 260, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -341.6,
+      "left": 367.02,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -70.3,
+      "left": 213.1,
+      "rotate": 270,
+      "attrs": { "distance": "242" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -78,
+      "left": 928.2,
+      "rotate": 90,
+      "attrs": { "color": "red", "flip": "" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -261.9,
+      "left": 628.5,
+      "rotate": 90,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 151.6, "left": 739.2, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 77, "left": 950.4, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 282.35,
+      "left": 585.6,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 3.95,
+      "left": 873.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -473.6,
+      "left": 639.2,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "ldr1:VCC", "mega:5V", "red", [ "h0" ] ],
+    [ "ldr1:GND", "mega:GND.2", "black", [ "h144", "v-122.5" ] ],
+    [ "dht1:VCC", "mega:5V", "red", [ "v278.4", "h-242.3" ] ],
+    [ "dht1:GND", "mega:GND.3", "black", [ "v288", "h-251.85" ] ],
+    [ "pir1:VCC", "mega:5V", "red", [ "h-57.6", "v345.6", "h218.5" ] ],
+    [ "pir1:GND", "mega:GND.1", "black", [ "v19.2", "h-134.46" ] ],
+    [ "pir1:OUT", "mega:3", "limegreen", [ "h-0.14", "v86.4", "h215.3" ] ],
+    [ "dht1:SDA", "mega:2", "green", [ "v28.8", "h-178.3" ] ],
+    [ "r1:2", "mega:A0", "gold", [ "h8.4", "v-97.2", "h-44.7" ] ],
+    [ "r1:1", "mega:GND.2", "gold", [ "h-9.6", "v-227.7" ] ],
+    [ "ultrasonic1:VCC", "mega:5V", "red", [ "v105.6", "h218.5" ] ],
+    [ "ultrasonic1:GND", "mega:GND.1", "black", [ "v-123.6", "h173" ] ],
+    [ "ultrasonic1:TRIG", "mega:4", "green", [ "v0.4", "h273" ] ],
+    [ "ultrasonic1:ECHO", "mega:5", "limegreen", [ "v0.8", "h263.5" ] ],
+    [ "led1:A", "r2:2", "gold", [ "v0" ] ],
+    [ "r2:1", "mega:9", "gold", [ "v-144", "h-306.5" ] ],
+    [ "servo1:GND", "mega:GND.3", "black", [ "h0" ] ],
+    [ "servo1:V+", "mega:5V", "red", [ "h0" ] ],
+    [ "servo1:PWM", "mega:6", "green", [ "h0" ] ],
+    [ "led1:C", "mega:GND.1", "black", [ "v-105.2", "h-412.8", "v0", "h0.2" ] ],
+    [ "bz1:2", "mega:10", "green", [ "h9.2", "v-0.4", "h-402.5" ] ],
+    [ "bz1:1", "mega:GND.1", "black", [ "h-105.6", "v115.2" ] ],
+    [ "relay1:VCC", "mega:5V", "red", [ "h0" ] ],
+    [ "relay1:GND", "mega:GND.3", "black", [ "h0" ] ],
+    [ "relay1:IN", "mega:11", "green", [ "v-0.2", "h-402.8" ] ],
+    [ "mega:A5", "mega:A9", "green", [ "v0" ] ],
+    [ "mega:A4", "mega:A10", "green", [ "v0" ] ],
+    [ "lcd1:GND", "mega:GND.1", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "mega:5V", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "mega:20", "green", [ "h-48", "v134.6", "h132.4" ] ],
+    [ "lcd1:SCL", "mega:21", "green", [ "h-38.4", "v115.5", "h132.3" ] ],
+    [ "ldr1:DO", "mega:12", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
